@@ -1,0 +1,20 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/gen"
+  "src/test"]
+
+ :dependencies
+ []
+
+ :dev-http {8060 "public"}
+
+ :builds
+ {:app
+  {:target :browser
+   :modules {:main {:init-fn demo.app/init}}
+   ;; what was the language level when wasm was first introduced?
+   ;; makes no sense to go below that when the browser wouldn't support wasm anyways
+   ;; es8 might be too high though
+   :compiler-options {:output-feature-set :es8}}}}
